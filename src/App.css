@@ -1,5 +1,6 @@
 :root {
   --radius-main: 5px;
+  --color-blue: #005b96;
 }
 
 * {
@@ -16,7 +17,6 @@
 html {
 	box-sizing: border-box;
   font-size: 62.5%;
-  background-color: #f2f4f9;
 }
 
 body {

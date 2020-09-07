@@ -20,6 +20,10 @@ export const RoutesState = ({ children }) => {
         setRoutes(routes.filter(route => route.id !== id))
     }
 
+    const deleteAllRoutes = () => {
+        setRoutes([])
+    }
+
     const reoderRoutes = (fromIndex, toIndex) => {
 
         const newRoutes = [...routes]
@@ -42,7 +46,7 @@ export const RoutesState = ({ children }) => {
       }
 
     return (
-        <RoutesContext.Provider value={{routes, addRoute, deleteRoute, reoderRoutes, dragPlacemark}}>
+        <RoutesContext.Provider value={{routes, addRoute, deleteRoute, reoderRoutes, dragPlacemark, deleteAllRoutes}}>
             {children}
         </RoutesContext.Provider>
     )

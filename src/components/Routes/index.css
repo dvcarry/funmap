@@ -1,17 +1,27 @@
 .routes_section {
-    padding: 15px;
+    padding: 20px;
+    border: 1px solid #f2f4f9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);    
 }
 
-
-/* .routes {
-    padding: 10px 0;    
-} */
 
 .routes_input {
     display: block;
     width: 100%;
     padding: 15px;
     margin-bottom: 25px;
-    outline: none;
+    background-color: #f2f4f9;
     border: none;
-  }
+    outline-color: var(--color-blue);
+}
+
+.routes_delete {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.routes_delete:hover {
+    color: red;
+}
+

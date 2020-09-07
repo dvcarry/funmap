@@ -4,15 +4,15 @@ import { Droppable } from 'react-beautiful-dnd';
 import { RoutesContext } from '../../context/RoutesContext';
 import { Route } from '../Route/Route';
 import { DragDropContext } from 'react-beautiful-dnd';
+import { defaulteCenter } from './../../data/data'
 
 
-const defaulteCenter = [55.75, 37.57]
-
-export const Routes = ({center}) => {
+export const Routes = ({ center }) => {
 
     const [input, setInput] = useState('')
 
-    const { routes, addRoute, reoderRoutes } = useContext(RoutesContext)
+    const { routes, addRoute, reoderRoutes, deleteAllRoutes } = useContext(RoutesContext)
+    console.log("Routes -> routes", routes)
 
     const onChangeInputHandler = event => {
         setInput(event.target.value)
@@ -33,8 +33,10 @@ export const Routes = ({center}) => {
     }
 
     return (
-        <DragDropContext onDragEnd={onDragEnd}>
-            <div className='routes_section'>
+
+
+        <div className='routes_section'>
+            <DragDropContext onDragEnd={onDragEnd}>
                 <input
                     placeholder='Введите название маршрута'
                     value={input}
@@ -65,7 +67,16 @@ export const Routes = ({center}) => {
                         </div>
                     )}
                 </Droppable>
-            </div>
-        </DragDropContext>
+            </DragDropContext>
+            {
+                routes.length > 1
+                    ? <span
+                        onClick={deleteAllRoutes}
+                        className='routes_delete'
+                    >Сбросить</span>
+                    : null
+            }
+        </div>
+
     )
 }

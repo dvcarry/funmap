@@ -1,8 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { YMaps, Map, Placemark, Polyline } from 'react-yandex-maps';
 import { RoutesContext } from '../../context/RoutesContext';
+import { defaulteCenter } from './../../data/data'
 
-const defaulteCenter = [55.75, 37.57]
 
 export const Maps = ({setCenter}) => {
 
@@ -17,7 +17,7 @@ export const Maps = ({setCenter}) => {
     return (
         <YMaps>
             <Map
-                defaultState={{ center: defaulteCenter, zoom: 9 }}
+                defaultState={{ center: defaulteCenter, zoom: 9 }} 
                 width='100%'
                 height='100vh'
                 onBoundsChange={onBoundsChange}

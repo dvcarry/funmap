@@ -1,0 +1,1 @@
+export const defaulteCenter = [55.75, 37.57] 
