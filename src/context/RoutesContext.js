@@ -20,10 +20,7 @@ export const RoutesState = ({ children }) => {
         setRoutes(routes.filter(route => route.id !== id))
     }
 
-    const changeRoutes = (fromId, toId) => {
-
-        const toIndex = routes.findIndex(route => route.id === toId)
-        const fromIndex = routes.findIndex(route => route.id === fromId)
+    const reoderRoutes = (fromIndex, toIndex) => {
 
         const newRoutes = [...routes]
         const movedItem = newRoutes.splice(fromIndex, 1)[0]
@@ -45,7 +42,7 @@ export const RoutesState = ({ children }) => {
       }
 
     return (
-        <RoutesContext.Provider value={{routes, addRoute, deleteRoute, changeRoutes, dragPlacemark}}>
+        <RoutesContext.Provider value={{routes, addRoute, deleteRoute, reoderRoutes, dragPlacemark}}>
             {children}
         </RoutesContext.Provider>
     )

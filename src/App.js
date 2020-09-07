@@ -1,74 +1,24 @@
 import React, { useState, useContext } from 'react';
 import './App.css';
-import { YMaps, Map, Placemark, Polyline } from 'react-yandex-maps';
-import { Route } from './components/Route/Route';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend'
+// import { YMaps, Map, Placemark, Polyline } from 'react-yandex-maps';
 import { RoutesContext } from './context/RoutesContext';
+import { Maps } from './components/Maps/Maps'
+
+import { Routes } from './components/Routes/Routes';
 
 
-const defaulteCenter = [55.75, 37.57]
+
 
 function App() {
 
   const [center, setCenter] = useState(null)
-  const [input, setInput] = useState('')
-
-  const { routes, addRoute, dragPlacemark } = useContext(RoutesContext)
-
-  const onBoundsChange = e => {
-    setCenter(e.originalEvent.newCenter)
-  }
-
-  const onChangeInputHandler = event => {
-    setInput(event.target.value)
-  }
-
-  const onKeyInputHandler = event => {
-    if (event.keyCode === 13 || event.which === 13) {
-      addRoute(input, center || defaulteCenter)
-      setInput('')
-    }
-  }
-
-  // const deleteRoute = id => {
-  //   setRoutes(routes.filter(route => route.id !== id))
-  // }
-
-
-
-  const arrayCoordinates = routes.map(route => route.coordinates)
-
 
   return (
     <div className="App">
       <div className='grid'>
-        <DndProvider backend={HTML5Backend}>
-          <div>
-            <input
-              placeholder='Введите название маршрута'
-              value={input}
-              onChange={onChangeInputHandler}
-              onKeyPress={onKeyInputHandler}
-              className='routes_input'
-            />
-            {
-              routes.map(route => {
-                return (
-                  <Route
-                    id={route.id}
-                    name={route.name}
-                    key={route.id}
-                    // deleteRoute={deleteRoute} 
-                    />
-                )
-              })
-            }
-          </div>
-        </DndProvider>
-
-
-        <YMaps>
+        <Routes center={center}/>
+        <Maps setCenter={setCenter}/>
+        {/* <YMaps>
           <Map
             defaultState={{ center: [55.75, 37.57], zoom: 9 }}
             width={640}
@@ -102,7 +52,7 @@ function App() {
               }}
             />
           </Map>
-        </YMaps>
+        </YMaps> */}
       </div>
 
     </div>

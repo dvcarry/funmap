@@ -1,5 +1,17 @@
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+.routes_section {
+    padding: 15px;
 }
 
+
+/* .routes {
+    padding: 10px 0;    
+} */
+
+.routes_input {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    outline: none;
+    border: none;
+  }

@@ -1,3 +1,7 @@
+:root {
+  --radius-main: 5px;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -11,7 +15,8 @@
 
 html {
 	box-sizing: border-box;
-	font-size: 62.5%;
+  font-size: 62.5%;
+  background-color: #f2f4f9;
 }
 
 body {
@@ -22,21 +27,8 @@ body {
 }
 
 
-.App {
-  max-width: 1200px;
-  margin: 30px auto;
-}
-
-
 .grid {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 20px;
+  grid-template-columns: 400px 1fr;
 }
 
-.routes_input {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-}
